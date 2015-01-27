@@ -1,0 +1,10 @@
+ext {
+    //Android
+    buildToolsVersion = '21.1.1'
+    daggerVersion = '1.2.2'
+
+    libraries = [
+            dagger        : "com.squareup.dagger:dagger:${daggerVersion}",
+            daggerCompiler: "com.squareup.dagger:dagger-compiler:${daggerVersion}",
+    ]
+}

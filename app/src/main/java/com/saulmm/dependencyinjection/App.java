@@ -2,10 +2,10 @@ package com.saulmm.dependencyinjection;
 
 import android.app.Application;
 
-import com.example.ModelModule;
+import com.domain.GetEpisodesUsecase;
+import com.domain.UsecasesModule;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.inject.Inject;
 
 import dagger.ObjectGraph;
 
@@ -13,11 +13,24 @@ import dagger.ObjectGraph;
 public class App extends Application {
 
     private ObjectGraph objectGraph;
+    @Inject GetEpisodesUsecase useCase;
 
-    private List<Object> getModules() {
+    @Override
+    public void onCreate() {
 
-        return Arrays.<Object>asList(
-            new ModelModule()
-        );
+        super.onCreate();
+        objectGraph = ObjectGraph.create(getModules());
+        objectGraph.inject(this);
+
+        useCase.execute();
+
+    }
+
+
+    public Object[] getModules() {
+        return new Object[]{
+            new AppModule(this),
+            new UsecasesModule(),
+        };
     }
 }
