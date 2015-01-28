@@ -11,7 +11,14 @@ import dagger.Provides;
  * Created by saulmm on 27/01/15.
  */
 
-@Module(complete = false, library = true, injects = {App.class})
+@Module(
+    complete = false,
+    library = true,
+    injects = {
+        App.class
+    }
+)
+
 public class AppModule {
 
     private App app;

@@ -1,18 +1,21 @@
 package com.domain;
 
 
+import com.model.ModelModule;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by saulmm on 27/01/15.
- */
 
 @Module (
     complete = false,
-    library = true
+    library = true,
+
+    includes = {
+        ModelModule.class
+    }
 )
 
 public class UsecasesModule {
