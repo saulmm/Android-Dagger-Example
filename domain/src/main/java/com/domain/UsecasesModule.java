@@ -1,6 +1,7 @@
 package com.domain;
 
 
+import com.model.Dataclient;
 import com.model.ModelModule;
 
 import javax.inject.Singleton;
@@ -20,7 +21,15 @@ import dagger.Provides;
 
 public class UsecasesModule {
 
-    @Provides @Singleton
+    private Dataclient dataclient;
+
+    public UsecasesModule(Dataclient dataclient) {
+
+        this.dataclient = dataclient;
+    }
+
+    @Provides
+    @Singleton
     public GetEpisodesUsecase provideGetEpisodesUsecase () {
         return new GetEpisodeUsecaseController();
     }

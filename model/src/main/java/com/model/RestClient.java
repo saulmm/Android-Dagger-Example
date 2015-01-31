@@ -10,7 +10,7 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 
-public class RestClient {
+public class RestClient implements Dataclient {
 
     private final String TV_MAZE_HOST = "http://api.tvmaze.com/";
     private TVMazeAPI tvMazeAPI;
